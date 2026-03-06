@@ -21,17 +21,12 @@ void draw (){
   
   background(220, 237, 242);
   
-  
+  fill(255, 255, 255, 100);
+  cloud(mouseX-420, mouseY-150);
   
   //time(0, 0, angle);
   //angle = angle + 1;
   
-  
-  //fill(245, 237, 242);
-  //rect(-300, -300, 600, 70);
-  //rect(-300, -300, 100, 420);
-  //rect(-300, 70, 600, 100);
-  //rect(200, -300, 100, 420);
 
   room(0, 0);
   
@@ -46,7 +41,6 @@ void draw (){
 
 void room(int x, int y){
   pushMatrix();
-  translate(x, y);
   
   noStroke();
   
@@ -58,10 +52,14 @@ void room(int x, int y){
   rect(200, -300, 100, 420);  
   
   //walltrim!
+  fill(255, 252, 245);
+  rect(-220,-250, 440, 20);
+  rect(-220, -250, 20, 320);
+  rect(200, -250, 20, 320);
+  rect(-240, 70, 480, 30);
   
   
-  //------trim
-  fill(245, 243, 240);
+  //------ floor trim
   rect(-300, 120, 600, 30);
   
   //------floor
@@ -79,8 +77,11 @@ void room(int x, int y){
   
 }
 
-void cloud() {
+void cloud(int x, int y) {
   //-----seasons? -- spring
+  pushMatrix();
+  translate(x, y);
+  
   fill(255);
   circle(130, -150, 50);
   circle(100, -130, 80);
@@ -88,6 +89,7 @@ void cloud() {
   circle(150, -110, 60);
   circle(185, -120, 50);
   circle(70, -115, 50); 
+  popMatrix();
 }
 
 void time(int x, int y, int angle) {
