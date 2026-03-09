@@ -1,13 +1,17 @@
 //kalie
 //hopes & fears
 
-int angle;
+//int angle;
+float angle = 0;
+//boolean drawcloud = false;
+
+
 
 
 void setup () {
   size(600, 600, P2D);  
-  angle = 0;
-
+  background(220, 237, 242);
+ 
 }
 
 
@@ -19,15 +23,20 @@ void draw (){
   
   println(mouseX, mouseY);
   
-  background(220, 237, 242);
+  TIME();
   
-  fill(255, 255, 255, 100);
-  cloud(mouseX-420, mouseY-150);
+  //pushMatrix();
+  //rotate(angle);
   
-  //time(0, 0, angle);
-  //angle = angle + 1;
+  //fill(255, 241, 203);
+  //circle(160, -180, 100);
+  //angle += 0.005;
+ 
+  //fill(232);
+  //circle(-160, 180, 100);
+  //angle += 0.005;
+  //popMatrix();
   
-
   room(0, 0);
   
   noStroke();
@@ -36,12 +45,17 @@ void draw (){
   //quad(-300, 
 }
 
-
+void keyPressed() {
+  if (key == 'r') {
+    cloud(mouseX-420, mouseY-150);
+    
+  }
+}
 
 
 void room(int x, int y){
   pushMatrix();
-  
+  translate(x,y);
   noStroke();
   
   //----wall!
@@ -91,6 +105,21 @@ void cloud(int x, int y) {
   circle(70, -115, 50); 
   popMatrix();
 }
+
+void TIME() {
+    pushMatrix();
+  rotate(angle);
+  
+  fill(255, 241, 203);
+  circle(160, -180, 100);
+  angle += 0.005;
+ 
+  fill(232);
+  circle(-160, 180, 100);
+  angle += 0.005;
+  popMatrix();
+}
+
 
 void time(int x, int y, int angle) {
   //sun and moon
