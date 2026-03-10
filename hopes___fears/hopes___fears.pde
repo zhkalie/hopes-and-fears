@@ -3,6 +3,7 @@
 
 //int angle;
 float angle = 0;
+float a, b, c;
 //boolean drawcloud = false;
 
 
@@ -10,36 +11,32 @@ float angle = 0;
 
 void setup () {
   size(600, 600, P2D);  
-  background(220, 237, 242);
+  
  
 }
 
 
 
 void draw (){
-  
+  background(220, 237, 242);
   translate(300, 300);
   noStroke();
   
   println(mouseX, mouseY);
   
+  cloud(mouseX-a, mouseY-b);
+  cloud(mouseX-420, mouseY-150);
+  
   TIME();
-  
-  //pushMatrix();
-  //rotate(angle);
-  
-  //fill(255, 241, 203);
-  //circle(160, -180, 100);
-  //angle += 0.005;
- 
-  //fill(232);
-  //circle(-160, 180, 100);
-  //angle += 0.005;
-  //popMatrix();
+
   
   room(0, 0);
-  
+
   noStroke();
+  //fill(220, 237, 242);
+  //quad(-200, -230, -200, 70, -25, 70, 75, -230);
+  
+  
   fill(72, 85, 113, 80);
   quad(-300, -300, -300, 300, -100, 300, 100, -300);
   //quad(-300, 
@@ -85,13 +82,25 @@ void room(int x, int y){
   strokeWeight(3);
   line(-300, 200, 300, 200);
   line (- 300, 250, 300, 250);
+  
+  
+  //---table!
+  fill(196, 182, 156);
+  rect(115, 65, 10, 150, 20);
+  rect(115, 65, 200, 20, 20);
+  
+  //flowers??
+  
+  
+  
+  
+  
+  
+  
   popMatrix();
-  
-  
-  
 }
 
-void cloud(int x, int y) {
+void cloud(float x, float y) {
   //-----seasons? -- spring
   pushMatrix();
   translate(x, y);
@@ -133,4 +142,9 @@ void time(int x, int y, int angle) {
   fill(232);
   circle(-160, 180, 100);
   
+}
+
+void mousePressed() {
+  a = random(width);
+  b = random(height);
 }
